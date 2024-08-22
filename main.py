@@ -3,6 +3,7 @@ from lib.logger import Log4J
 from lib.utils import Utils
 
 # Main method
+# Create Spark Session
 if __name__ == '__main__':
 
     if len(sys.argv) < 2:
