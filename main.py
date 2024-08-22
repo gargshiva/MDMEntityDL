@@ -2,6 +2,7 @@ import sys
 from lib.logger import Log4J
 from lib.utils import Utils
 
+# Main method
 if __name__ == '__main__':
 
     if len(sys.argv) < 2:
