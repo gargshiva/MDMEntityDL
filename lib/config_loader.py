@@ -29,4 +29,4 @@ def load_app_config(env):
 
 def load_data_filter(env,key):
     conf = load_app_config(env)
-    return True if conf[key] == "" else conf[key]
+    return '1==1' if conf[key] == "" else conf[key]
