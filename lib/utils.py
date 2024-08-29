@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 
-from lib.config import load_spark_config
+from lib.config_loader import load_spark_config
 
 
 class Utils:
