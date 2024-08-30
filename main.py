@@ -1,6 +1,7 @@
 import sys
 
 from lib.logger import Log4J
+from lib.transformations import get_contract, get_party, get_party_address
 from lib.utils import Utils
 from lib.data_loader import load_account_table
 
@@ -19,4 +20,8 @@ if __name__ == '__main__':
     logger.info(spark.sparkContext.getConf().toDebugString())
 
     accounts_df = load_account_table(spark, env, 'test_data/accounts/account_samples.csv')
-    accounts_df.show(truncate=False)
+    parties_df = load_account_table(spark, env, 'test_data/parties/party_samples.csv')
+    party_address_df = load_account_table(spark, env, 'test_data/party_address/address_samples.csv')
+    party_address_df.show(truncate=False)
+    get_party_address(party_address_df).show(truncate=False)
+    get_party_address(party_address_df).printSchema()
