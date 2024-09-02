@@ -1,5 +1,7 @@
-from pyspark.sql import DataFrame, Column
-from pyspark.sql.functions import struct, col, lit, array, when, isnull, filter, collect_list
+from pyspark.sql import DataFrame, Column, SparkSession
+from pyspark.sql.functions import struct, col, lit, array, when, isnull, filter, collect_list, broadcast, expr, \
+    current_timestamp
+import uuid
 
 
 # Every Column is represented as struct
@@ -104,7 +106,29 @@ def get_payload(contract_df: DataFrame, party_address_df: DataFrame):
         payload_df['contractCountry'],
         payload_df['partyRelations']
     ).alias('payload')
-    payload_df.select(payload).show(truncate=False)
-    payload_df.select(payload).printSchema()
 
-    payload_df.select(payload).write.json('op')
+    return payload_df.select(payload)
+
+
+def apply_header(payload_df, spark: SparkSession):
+    # Create the dataframe and perform cross join (broadcast)
+    header = [('SBDL-Contract', 1, 0)]
+    header_df = broadcast(spark.createDataFrame(header).toDF('eventType', 'majorSchemaVersion', 'minorSchemaVersion')) \
+        .withColumn('eventIdentifier', expr("uuid()")) \
+        .withColumn('eventDateTime', current_timestamp())
+    event_df = payload_df.crossJoin(header_df)
+
+    keys = array(struct(
+        lit('contractIdentifier').alias('keyField'),
+        lit('6982391067').alias('keyValue')
+    )).alias('keys')
+
+    event_header = struct(
+        event_df['eventIdentifier'],
+        event_df['eventType'],
+        event_df['majorSchemaVersion'],
+        event_df['minorSchemaVersion'],
+        event_df['eventDateTime']
+    ).alias('eventHeader')
+
+    return event_df.select(event_header, keys, col('payload'))
