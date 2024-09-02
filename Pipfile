@@ -5,9 +5,11 @@ name = "pypi"
 
 [packages]
 pyspark = "*"
+setuptools = "*"
 
 [dev-packages]
 pytest = "*"
+chispa = "*"
 
 [requires]
 python_version = "3.12"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3be4337f7ec32eb062e56b1f41efa3661131dffb4703728b627d53d93e74f111"
+            "sha256": "4457656804ba6388a326620053167bc9e6dd12169da963a1f165002a5049e196"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,9 +31,27 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==3.5.2"
+        },
+        "setuptools": {
+            "hashes": [
+                "sha256:0274581a0037b638b9fc1c6883cc71c0210865aaa76073f7882376b641b84e8f",
+                "sha256:a85e96b8be2b906f3e3e789adec6a9323abf79758ecfa3065bd740d81158b11e"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==74.0.0"
         }
     },
     "develop": {
+        "chispa": {
+            "hashes": [
+                "sha256:7ccdbfcc187c3d630efcccc853aa7a7797d3e02a4ee16278c9aeb66fe24c88ca",
+                "sha256:f040d6eaaa9f6165a31ff675c44cad0778bb260d833f35f023610357b5f9b5ab"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8' and python_version < '4.0'",
+            "version": "==0.10.1"
+        },
         "iniconfig": {
             "hashes": [
                 "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3",
@@ -58,6 +76,14 @@
             "markers": "python_version >= '3.8'",
             "version": "==1.5.0"
         },
+        "prettytable": {
+            "hashes": [
+                "sha256:7e23ca1e68bbfd06ba8de98bf553bf3493264c96d5e8a615c0471025deeba722",
+                "sha256:aa17083feb6c71da11a68b2c213b04675c4af4ce9c541762632ca3f2cb3546dd"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.11.0"
+        },
         "pytest": {
             "hashes": [
                 "sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5",
@@ -66,6 +92,13 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==8.3.2"
+        },
+        "wcwidth": {
+            "hashes": [
+                "sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859",
+                "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+            ],
+            "version": "==0.2.13"
         }
     }
 }
