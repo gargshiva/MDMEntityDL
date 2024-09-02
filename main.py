@@ -36,4 +36,5 @@ if __name__ == '__main__':
     party_addr_df = get_party_address_df(parties_df_transformed, address_df_transformed)
     payload_df = get_payload(accounts_df_transformed, party_addr_df)
     event_df: DataFrame = apply_header(payload_df, spark).repartition(1)
-    event_df.write.json('Op')
+    #event_df.write.json('Op')
+    event_df.show(truncate=False)

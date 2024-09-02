@@ -107,7 +107,7 @@ def get_payload(contract_df: DataFrame, party_address_df: DataFrame):
         payload_df['partyRelations']
     ).alias('payload')
 
-    return payload_df.select(payload)
+    return payload_df.select(contract_df['account_id'], payload)
 
 
 def apply_header(payload_df, spark: SparkSession):
@@ -120,7 +120,7 @@ def apply_header(payload_df, spark: SparkSession):
 
     keys = array(struct(
         lit('contractIdentifier').alias('keyField'),
-        lit('6982391067').alias('keyValue')
+        col('account_id').alias('keyValue')
     )).alias('keys')
 
     event_header = struct(
