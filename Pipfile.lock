@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4457656804ba6388a326620053167bc9e6dd12169da963a1f165002a5049e196"
+            "sha256": "7388b4a87ea549a9fc989d9ec6d5f0c0eb7f116a80e9039d4a7d8be4a4789892"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,20 +26,28 @@
         },
         "pyspark": {
             "hashes": [
-                "sha256:bbb36eba09fa24e86e0923d7e7a986041b90c714e11c6aa976f9791fe9edde5e"
+                "sha256:dd6569e547365eadc4f887bf57f153e4d582a68c4b490de475d55b9981664910"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==3.5.2"
+            "version": "==3.5.1"
         },
         "setuptools": {
             "hashes": [
-                "sha256:0274581a0037b638b9fc1c6883cc71c0210865aaa76073f7882376b641b84e8f",
-                "sha256:a85e96b8be2b906f3e3e789adec6a9323abf79758ecfa3065bd740d81158b11e"
+                "sha256:2353af060c06388be1cecbf5953dcdb1f38362f87a2356c480b6b4d5fcfc8847",
+                "sha256:fc91b5f89e392ef5b77fe143b17e32f65d3024744fba66dc3afe07201684d766"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==74.0.0"
+            "version": "==74.1.1"
+        },
+        "venv-pack": {
+            "hashes": [
+                "sha256:33bbed48728bd5d1fee0a89c3082702b5d100c8021b2da9ea384b23ac410d3cd",
+                "sha256:95c5a51b8e5576143843b7693e1ac275c627348477562669bcd250847fa08136"
+            ],
+            "index": "pypi",
+            "version": "==0.2.0"
         }
     },
     "develop": {

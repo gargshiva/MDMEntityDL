@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pyspark = "*"
 setuptools = "*"
+venv-pack = "*"
+pyspark = "==3.5.1"
 
 [dev-packages]
 pytest = "*"

@@ -9,6 +9,7 @@ def spark():
     return Utils.get_spark_session('LOCAL')
 
 
+
 def test_config_load():
     conf = load_app_config('LOCAL')
     print(conf)
