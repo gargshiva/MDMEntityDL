@@ -13,9 +13,7 @@ class Utils:
                 .config('spark.driver.extraJavaOptions',
                         '-Dlog4j2.configurationFile=log4j2.properties -Dspark.yarn.app.container.log.dir=app-logs -Dlogfile.name=hello-spark') \
                 .config(conf=spark_conf) \
-                .enableHiveSupport() \
                 .getOrCreate()
         else:
             return SparkSession.builder \
-                .enableHiveSupport() \
                 .getOrCreate()

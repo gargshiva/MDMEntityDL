@@ -24,7 +24,7 @@ if __name__ == '__main__':
     parties_add_ds_location = sys.argv[4]
     output_location = sys.argv[5]
 
-    logger.info(spark.sparkContext.getConf().toDebugString())
+   # logger.info(spark.sparkContext.getConf().toDebugString())
 
     logger.info(f'Environment -> {env}')
     logger.info(f'Accounts DS -> {account_ds_location}')
@@ -48,4 +48,4 @@ if __name__ == '__main__':
     payload_df = get_payload(accounts_df_transformed, party_addr_df)
     event_df: DataFrame = apply_header(payload_df, spark).repartition(1).cache()
     event_df.show(truncate=False)
-    event_df.write.json(output_location)
+    event_df.write.mode("overwrite").json(output_location)

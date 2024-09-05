@@ -7,7 +7,8 @@ from pyspark import SparkConf
 def load_spark_config(env):
     spark_conf = SparkConf()
     config = configparser.ConfigParser()
-    config.read('conf/spark.conf')
+    config.read('spark.conf')
+    # config.read('conf/spark.conf')
 
     for (key, val) in config.items(env):
         spark_conf.set(key, val)
@@ -19,7 +20,8 @@ def load_spark_config(env):
 def load_app_config(env):
     conf = dict()
     config = configparser.ConfigParser()
-    config.read('conf/app.conf')
+    # config.read('conf/app.conf')
+    config.read('app.conf')
 
     for (key, val) in config.items(env):
         conf[key] = val
@@ -27,6 +29,6 @@ def load_app_config(env):
     return conf
 
 
-def load_data_filter(env,key):
+def load_data_filter(env, key):
     conf = load_app_config(env)
     return '1==1' if conf[key] == "" else conf[key]
